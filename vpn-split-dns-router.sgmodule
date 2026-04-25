@@ -1,0 +1,19 @@
+#!name=VPN Split DNS Router
+#!desc=Resolve one internal DNS suffix through macOS system DNS and route private VPN addresses directly.
+#!author=pi
+#!category=Network
+#!system=mac
+#!arguments=suffix:example.internal
+#!arguments-desc=suffix: Internal DNS suffix handled by macOS system DNS. Examples: sr, corp.example.com, tailnet.ts.net.
+
+[Host]
+{{{suffix}}} = server:system
+*.{{{suffix}}} = server:system
+
+[Rule]
+DOMAIN-SUFFIX,{{{suffix}}},DIRECT
+IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
+IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
+IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
+IP-CIDR,100.64.0.0/10,DIRECT,no-resolve
+IP-CIDR6,fc00::/7,DIRECT,no-resolve
