@@ -4,9 +4,9 @@ Reusable Surge modules for macOS networking workflows.
 
 ## VPN Split DNS Router
 
-`vpn-split-dns-router.sgmodule` routes one internal DNS suffix through macOS system DNS, then lets private VPN routes handle the resolved addresses.
+`vpn-split-dns-router.sgmodule` routes one internal DNS suffix through a VPN DNS server, then lets private VPN routes handle the resolved addresses.
 
-This is useful for Tailscale, ZeroTier, WireGuard, and corporate VPN setups where internal domains resolve through the system resolver.
+This is useful for Tailscale, ZeroTier, WireGuard, and corporate VPN setups where internal domains resolve through a VPN DNS server.
 
 ### Install
 
@@ -20,16 +20,19 @@ After installing, set the module argument:
 
 ```ini
 suffix=corp
+dns-server=10.0.0.53
 ```
 
 Use bare suffix format: `corp`, `corp.example.com`, or `internal.example.com`.
+
+Set `dns-server` to the resolver that answers the internal suffix. Tailscale users commonly use `100.100.100.100`.
 
 ### What It Adds
 
 ```ini
 [Host]
-{{{suffix}}} = server:system
-*.{{{suffix}}} = server:system
+{{{suffix}}} = server:{{{dns-server}}}
+*.{{{suffix}}} = server:{{{dns-server}}}
 
 [Rule]
 DOMAIN-SUFFIX,{{{suffix}}},DIRECT
@@ -42,10 +45,10 @@ IP-CIDR6,fc00::/7,DIRECT,no-resolve
 
 ### Requirements
 
-The macOS system resolver must resolve the internal suffix.
+The VPN DNS server must resolve the internal suffix.
 
 ```bash
-dscacheutil -q host -a name foo.corp
+dig +short foo.corp @10.0.0.53
 ```
 
 The resolved address must have a VPN route.

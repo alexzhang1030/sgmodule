@@ -1,14 +1,14 @@
 #!name=VPN Split DNS Router
-#!desc=Resolve one internal DNS suffix through macOS system DNS and route private VPN addresses directly.
+#!desc=Resolve one internal DNS suffix through a VPN DNS server and route private VPN addresses directly.
 #!author=pi
 #!category=Network
 #!system=mac
-#!arguments=suffix:corp
-#!arguments-desc=suffix: Bare internal DNS suffix handled by macOS system DNS. Examples: corp, corp.example.com, internal.example.com.
+#!arguments=suffix:corp,dns-server:10.0.0.53
+#!arguments-desc=suffix: Bare internal DNS suffix. Examples: corp, corp.example.com, internal.example.com. dns-server: DNS server reachable through the VPN. Examples: 10.0.0.53, 100.100.100.100.
 
 [Host]
-{{{suffix}}} = server:system
-*.{{{suffix}}} = server:system
+{{{suffix}}} = server:{{{dns-server}}}
+*.{{{suffix}}} = server:{{{dns-server}}}
 
 [Rule]
 DOMAIN-SUFFIX,{{{suffix}}},DIRECT
