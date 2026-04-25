@@ -19,10 +19,10 @@ https://raw.githubusercontent.com/alexzhang1030/sgmodule/main/vpn-split-dns-rout
 After installing, set the module argument:
 
 ```ini
-suffix=sr
+suffix=corp
 ```
 
-Replace `sr` with your internal DNS suffix, such as `corp.example.com` or `tailnet.ts.net`.
+Use bare suffix format: `corp`, `corp.example.com`, or `internal.example.com`.
 
 ### What It Adds
 
@@ -45,13 +45,13 @@ IP-CIDR6,fc00::/7,DIRECT,no-resolve
 The macOS system resolver must resolve the internal suffix.
 
 ```bash
-dscacheutil -q host -a name service.sr
+dscacheutil -q host -a name foo.corp
 ```
 
 The resolved address must have a VPN route.
 
 ```bash
-route -n get 10.10.18.25
+route -n get 10.0.0.25
 ```
 
 ### Verify Through Surge
@@ -59,7 +59,7 @@ route -n get 10.10.18.25
 ```bash
 /Applications/Surge.app/Contents/Applications/surge-cli reload
 /Applications/Surge.app/Contents/Applications/surge-cli flush dns
-curl --proxy http://127.0.0.1:6152 http://service.sr
+curl --proxy http://127.0.0.1:6152 http://foo.corp
 ```
 
-Replace `service.sr` with a host under your internal suffix.
+Replace `foo.corp` with a host under your internal suffix.

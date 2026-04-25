@@ -3,8 +3,8 @@
 #!author=pi
 #!category=Network
 #!system=mac
-#!arguments=suffix:example.internal
-#!arguments-desc=suffix: Internal DNS suffix handled by macOS system DNS. Examples: sr, corp.example.com, tailnet.ts.net.
+#!arguments=suffix:corp
+#!arguments-desc=suffix: Bare internal DNS suffix handled by macOS system DNS. Examples: corp, corp.example.com, internal.example.com.
 
 [Host]
 {{{suffix}}} = server:system
