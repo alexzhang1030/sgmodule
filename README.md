@@ -19,10 +19,10 @@ https://raw.githubusercontent.com/alexzhang1030/sgmodule/main/static-host-overri
 After installing, set the module arguments you need:
 
 ```ini
-domain1=artifactory.sr
+domain1=foo.internal
 ip1=127.0.0.1
-domain2=repo.sr
-ip2=10.10.19.12
+domain2=bar.internal
+ip2=10.0.0.25
 ```
 
 Leave unused `domainN` and `ipN` pairs empty.
@@ -39,20 +39,20 @@ Leave unused `domainN` and `ipN` pairs empty.
 
 ### Example
 
-If you forward local port `443` to an internal Artifactory service:
+If you forward local port `443` to an internal HTTPS service:
 
 ```bash
-ssh -N -L 443:10.10.19.12:443 user@jump
+ssh -N -L 443:10.0.0.25:443 user@jump
 ```
 
 Then set:
 
 ```ini
-domain1=artifactory.sr
+domain1=foo.internal
 ip1=127.0.0.1
 ```
 
-Requests to `https://artifactory.sr` will resolve to your local machine.
+Requests to `https://foo.internal` will resolve to your local machine.
 
 ## VPN Split DNS Router
 
