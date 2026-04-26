@@ -3,12 +3,12 @@
 #!author=pi
 #!category=Network
 #!system=mac
-#!arguments=domain1:,ip1:,domain2:,ip2:,domain3:,ip3:,domain4:,ip4:,domain5:,ip5:
+#!arguments=domain1=&ip1=&domain2=&ip2=&domain3=&ip3=&domain4=&ip4=&domain5=&ip5=
 #!arguments-desc=domain1: Hostname for entry 1. ip1: Target IP for entry 1. domain2: Hostname for entry 2. ip2: Target IP for entry 2. domain3: Hostname for entry 3. ip3: Target IP for entry 3. domain4: Hostname for entry 4. ip4: Target IP for entry 4. domain5: Hostname for entry 5. ip5: Target IP for entry 5.
 
 [Host]
-{{{domain1}}} = {{{ip1}}}
-{{{domain2}}} = {{{ip2}}}
-{{{domain3}}} = {{{ip3}}}
-{{{domain4}}} = {{{ip4}}}
-{{{domain5}}} = {{{ip5}}}
+%domain1% = %ip1%
+%domain2% = %ip2%
+%domain3% = %ip3%
+%domain4% = %ip4%
+%domain5% = %ip5%
