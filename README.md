@@ -4,7 +4,7 @@ Reusable Surge modules for macOS networking workflows.
 
 ## Static Host Overrides
 
-`static-host-overrides.sgmodule` maps up to 10 domains to fixed IP addresses through Surge's `[Host]` section.
+`static-host-overrides.sgmodule` maps up to 5 domains to fixed IP addresses through Surge's `[Host]` section.
 
 This is useful for SSH local forwarding, reverse proxies, staging cutovers, and local testing where a real hostname should resolve to `127.0.0.1`, a private IP, or a VPN address.
 
@@ -25,7 +25,7 @@ domain2=bar.internal
 ip2=10.0.0.25
 ```
 
-Leave unused `domainN` and `ipN` pairs empty.
+This module exposes 5 `domainN` and `ipN` pairs. Leave unused pairs empty.
 
 ### What It Adds
 
@@ -34,7 +34,7 @@ Leave unused `domainN` and `ipN` pairs empty.
 {{{domain1}}} = {{{ip1}}}
 {{{domain2}}} = {{{ip2}}}
 ...
-{{{domain10}}} = {{{ip10}}}
+{{{domain5}}} = {{{ip5}}}
 ```
 
 ### Example

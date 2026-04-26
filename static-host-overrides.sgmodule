@@ -1,10 +1,10 @@
 #!name=Static Host Overrides
-#!desc=Map up to 10 domains to fixed IP addresses for tunnel, reverse proxy, or testing.
+#!desc=Map up to 5 domains to fixed IP addresses for tunnel, reverse proxy, or testing.
 #!author=pi
 #!category=Network
 #!system=mac
-#!arguments=domain1:artifactory.sr,ip1:127.0.0.1,domain2:,ip2:,domain3:,ip3:,domain4:,ip4:,domain5:,ip5:,domain6:,ip6:,domain7:,ip7:,domain8:,ip8:,domain9:,ip9:,domain10:,ip10:
-#!arguments-desc=domain1: Hostname for entry 1. ip1: Target IP for entry 1. domain2: Hostname for entry 2. ip2: Target IP for entry 2. domain3: Hostname for entry 3. ip3: Target IP for entry 3. domain4: Hostname for entry 4. ip4: Target IP for entry 4. domain5: Hostname for entry 5. ip5: Target IP for entry 5. domain6: Hostname for entry 6. ip6: Target IP for entry 6. domain7: Hostname for entry 7. ip7: Target IP for entry 7. domain8: Hostname for entry 8. ip8: Target IP for entry 8. domain9: Hostname for entry 9. ip9: Target IP for entry 9. domain10: Hostname for entry 10. ip10: Target IP for entry 10.
+#!arguments=domain1:,ip1:,domain2:,ip2:,domain3:,ip3:,domain4:,ip4:,domain5:,ip5:
+#!arguments-desc=domain1: Hostname for entry 1. ip1: Target IP for entry 1. domain2: Hostname for entry 2. ip2: Target IP for entry 2. domain3: Hostname for entry 3. ip3: Target IP for entry 3. domain4: Hostname for entry 4. ip4: Target IP for entry 4. domain5: Hostname for entry 5. ip5: Target IP for entry 5.
 
 [Host]
 {{{domain1}}} = {{{ip1}}}
@@ -12,8 +12,3 @@
 {{{domain3}}} = {{{ip3}}}
 {{{domain4}}} = {{{ip4}}}
 {{{domain5}}} = {{{ip5}}}
-{{{domain6}}} = {{{ip6}}}
-{{{domain7}}} = {{{ip7}}}
-{{{domain8}}} = {{{ip8}}}
-{{{domain9}}} = {{{ip9}}}
-{{{domain10}}} = {{{ip10}}}
