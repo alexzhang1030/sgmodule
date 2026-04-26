@@ -2,6 +2,58 @@
 
 Reusable Surge modules for macOS networking workflows.
 
+## Static Host Overrides
+
+`static-host-overrides.sgmodule` maps up to 10 domains to fixed IP addresses through Surge's `[Host]` section.
+
+This is useful for SSH local forwarding, reverse proxies, staging cutovers, and local testing where a real hostname should resolve to `127.0.0.1`, a private IP, or a VPN address.
+
+### Install
+
+Use this Module URL in Surge:
+
+```text
+https://raw.githubusercontent.com/alexzhang1030/sgmodule/main/static-host-overrides.sgmodule
+```
+
+After installing, set the module arguments you need:
+
+```ini
+domain1=artifactory.sr
+ip1=127.0.0.1
+domain2=repo.sr
+ip2=10.10.19.12
+```
+
+Leave unused `domainN` and `ipN` pairs empty.
+
+### What It Adds
+
+```ini
+[Host]
+{{{domain1}}} = {{{ip1}}}
+{{{domain2}}} = {{{ip2}}}
+...
+{{{domain10}}} = {{{ip10}}}
+```
+
+### Example
+
+If you forward local port `443` to an internal Artifactory service:
+
+```bash
+ssh -N -L 443:10.10.19.12:443 user@jump
+```
+
+Then set:
+
+```ini
+domain1=artifactory.sr
+ip1=127.0.0.1
+```
+
+Requests to `https://artifactory.sr` will resolve to your local machine.
+
 ## VPN Split DNS Router
 
 `vpn-split-dns-router.sgmodule` routes one internal DNS suffix through a VPN DNS server, then lets private VPN routes handle the resolved addresses.
