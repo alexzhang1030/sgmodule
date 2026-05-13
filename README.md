@@ -29,6 +29,14 @@ This module exposes 10 `domainN` and `ipN` pairs.
 
 Surge renders each pair as a separate editable field because the module defines a concrete default value for every argument.
 
+### Disable
+
+After disabling this module, flush Surge DNS cache so cached host overrides are cleared immediately:
+
+```bash
+/Applications/Surge.app/Contents/Applications/surge-cli flush dns
+```
+
 ### What It Adds
 
 ```ini
@@ -80,6 +88,14 @@ dns-server=10.0.0.53
 Use bare suffix format: `corp`, `corp.example.com`, or `internal.example.com`.
 
 Set `dns-server` to the resolver that answers the internal suffix. Tailscale users commonly use `100.100.100.100`.
+
+### Disable
+
+After disabling this module, flush Surge DNS cache so cached split-DNS answers are cleared immediately:
+
+```bash
+/Applications/Surge.app/Contents/Applications/surge-cli flush dns
+```
 
 ### What It Adds
 

@@ -1,5 +1,5 @@
 #!name=Static Host Overrides
-#!desc=Map up to 10 domains to fixed IP addresses for tunnel, reverse proxy, or testing.
+#!desc=Map up to 10 domains to fixed IP addresses for tunnel, reverse proxy, or testing. After disabling this module, run Flush DNS to clear cached overrides.
 #!author=pi
 #!category=Network
 #!system=mac

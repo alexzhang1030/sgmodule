@@ -1,5 +1,5 @@
 #!name=VPN Split DNS Router
-#!desc=Resolve one internal DNS suffix through a VPN DNS server and route private VPN addresses directly.
+#!desc=Resolve one internal DNS suffix through a VPN DNS server and route private VPN addresses directly. After disabling this module, run Flush DNS to clear cached overrides.
 #!author=pi
 #!category=Network
 #!system=mac
